@@ -8,4 +8,4 @@
         msg: "Rebooting for maintenance via Ansible"
         pre_reboot_delay: 1    # seconds before initiating reboot
         post_reboot_delay: 5  # seconds to wait after reboot before reconnect
-        reboot_timeout: 500    # max seconds to wait for machine to be back
+        reboot_timeout: 120    # max seconds to wait for machine to be back
