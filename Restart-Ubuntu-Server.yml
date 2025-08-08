@@ -1,0 +1,16 @@
+---
+- name: Wait for Docker to stop all containers, then shut down
+  hosts: linux
+  become: no
+  gather_facts: no
+
+  tasks:
+    - name: Wait until no running Docker containers remain
+      ansible.builtin.shell: |
+        while [ "$(docker ps -q | wc -l)" -ne 0 ]; do
+          sleep 2
+        done
+      changed_when: false
+
+    - name: Shut down the system
+      ansible.builtin.command: /usr/sbin/shutdown now
