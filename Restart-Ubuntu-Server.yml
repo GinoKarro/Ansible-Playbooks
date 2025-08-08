@@ -4,9 +4,7 @@
   become: yes
   gather_facts: no
 
-- name: Shut down the system
-  ansible.builtin.command: sudo shutdown now
-#  tasks:
+  tasks:
 #    - name: Wait until no running Docker containers remain
 #      ansible.builtin.shell: |
 #        while [ "$(sudo docker ps -q | wc -l)" -ne 0 ]; do
@@ -14,4 +12,5 @@
 #        done
 #      changed_when: false
 
-
+    - name: Shut down the system
+      ansible.builtin.command: sudo shutdown now
