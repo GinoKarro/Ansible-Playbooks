@@ -12,6 +12,6 @@
 
     - name: Start NZBGet
       ansible.windows.win_shell: |
-        Start-Process -FilePath "C:\Program Files\NZBGet\nzbget.exe" -WorkingDirectory "C:\Program Files\NZBGet\" -ErrorAction Stop
+        Start-Process -FilePath "C:\Program Files\NZBGet\nzbget.exe" -ErrorAction Stop
 
 
