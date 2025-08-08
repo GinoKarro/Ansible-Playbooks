@@ -1,7 +1,7 @@
 ---
 - name: Wait for Docker to stop all containers, then shut down
   hosts: linux
-  become: no
+  become: yes
   gather_facts: no
 
   tasks:
