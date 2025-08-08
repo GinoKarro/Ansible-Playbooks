@@ -5,7 +5,7 @@
     - name: Kill NZBGet if running
       ansible.windows.win_shell: |
         Stop-Process -Name nzbget -Force
-        timeout 5
+        Start-Sleep -Seconds 5
         Stop-Process -Name nzbget -Force
 
     - name: Start NZBGet
