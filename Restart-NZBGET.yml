@@ -1,0 +1,13 @@
+---
+- name: Restart NZBGet process on Windows
+  hosts: windows
+  tasks:
+    - name: Kill NZBGet if running
+      ansible.windows.win_shell: |
+        Stop-Process -Name nzbget.exe -Force
+        timeout 5
+        Stop-Process -Name nzbget.exe -Force
+
+    - name: Start NZBGet
+      ansible.windows.win_shell: |
+        Start-Process "C:\Program Files\NZBGet\nzbget.exe"
