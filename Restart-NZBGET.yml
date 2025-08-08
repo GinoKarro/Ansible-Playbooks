@@ -4,7 +4,7 @@
   tasks:
     - name: Kill NZBGet if running
       ansible.windows.win_shell: |
-        Stop-Process -Name nzbget -Force
+        Stop-Process -Name nzbget -Force -ErrorAction SilentlyContinue
 
     - name: Wait 5 seconds
       ansible.windows.win_shell: |
