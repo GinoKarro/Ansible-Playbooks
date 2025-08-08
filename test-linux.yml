@@ -1,0 +1,29 @@
+---
+- name: Test connection to Linux hosts
+  hosts: linux
+  become: yes
+  tasks:
+    - name: Ping the host
+      ansible.builtin.ping:
+
+    - name: Show whoami output
+      ansible.builtin.command: whoami
+      register: whoami_result
+
+    - name: Display whoami result
+      ansible.builtin.debug:
+        msg: "Running as: {{ whoami_result.stdout }}"
+
+    - name: Create a test file in /tmp
+      ansible.builtin.file:
+        path: /tmp/ansible_test.txt
+        state: touch
+        mode: '0644'
+
+    - name: Display date and time
+      ansible.builtin.command: date
+      register: date_result
+
+    - name: Show date result
+      ansible.builtin.debug:
+        msg: "Server time is: {{ date_result.stdout }}"
